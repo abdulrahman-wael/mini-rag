@@ -1,8 +1,11 @@
+from dotenv import load_dotenv
 
-def main():
-    from fastapi import FastAPI
-    app = FastAPI()
-    
+load_dotenv()
 
-if __name__ == "__main__":
-    main()
+from fastapi import FastAPI
+
+from routes.base import base_router
+
+app = FastAPI()
+
+app.include_router(base_router)
